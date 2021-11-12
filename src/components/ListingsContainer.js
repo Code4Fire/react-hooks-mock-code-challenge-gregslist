@@ -1,19 +1,18 @@
 import React from "react";
 import ListingCard from "./ListingCard";
 
-function ListingsContainer({listings, setListings}) {
-  
+function ListingsContainer({listings, removeListing}) {
   return (
     <main>
       <ul className="cards">
-        {setListings.map((listing) => {
-          return (
-          <ListingCard
+      {listings.map((listing) => {
+          return <ListingCard
           key= {listing.id}
+          cardId= {listing.id}
           description= {listing.description}
           image = {listing.image}
-          location= {listing.location}/>
-          );
+          location= {listing.location}
+          removeListing={removeListing} />
         })}
       </ul>
     </main>
